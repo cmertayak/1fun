@@ -13,4 +13,6 @@ postgres -D /usr/local/var/postgres/
 ```
 
 In order to connect to the database:
+```bash
 psql mydb --username=dev
+```
