@@ -16,3 +16,10 @@ In order to connect to the database:
 ```bash
 psql mydb --username=dev
 ```
+
+## Migration Specific Manage Commands
+
+1. makemigrations
+1. sqlmigrate
+1. squashmigrations
+1. migrate
