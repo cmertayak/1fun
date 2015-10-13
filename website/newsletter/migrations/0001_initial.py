@@ -13,9 +13,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Lead',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True, primary_key=True,
+                                        serialize=False, verbose_name='ID')),
                 ('email', models.EmailField(max_length=254, unique=True)),
-                ('validation_time', models.DateTimeField(null=True, blank=True)),
+                ('validation_time', models.DateTimeField(null=True,
+                                                         blank=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('modified', models.DateTimeField(auto_now=True)),
             ],

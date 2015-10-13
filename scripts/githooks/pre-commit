@@ -1,0 +1,35 @@
+#!/bin/sh
+source scripts/init.sh
+
+# Make sure to run below command while **under project root folder**.
+# If you already have a .git/hooks folder you should delete (or rename) it.
+# ln -s -f ../scripts/githooks/ .git/hooks
+
+wrap_linter() {
+  start_time=`date +%s`
+  # changing encoding in LANG is necessary because default system encoding (ascii)
+  # is causing isort to fail on some files
+  LANG=en_US.UTF-8 $1
+  result=$?
+  end_time=`date +%s`
+  if [ ${result} -ne 0 ]
+  then
+    echo "\033[0m[\033[0;91mFAILED\033[0m] in `expr $end_time - $start_time` seconds"
+    exit 1
+  else
+    echo "\033[0m[\033[0;92mPASSED\033[0m] in `expr $end_time - $start_time` seconds"
+  fi
+}
+
+# Run these in this order so we fail fast. If eslint starts taking longer, re-order.
+
+#printf "Linting Javascript with eslint... "
+#cd static
+#wrap_linter "`npm bin`/eslint *.js src/udemy/js/*.js src/udemy/js/jq/videojs-plugins/*.js src/udemy/js/test/e2e/**/*.js"
+#cd ../
+
+# printf "Linting Python with isort... "
+# wrap_linter "isort -rc ./udemy -c"
+
+printf "Linting Python with flake8... "
+wrap_linter "flake8 --jobs=auto website"
