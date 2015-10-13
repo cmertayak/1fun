@@ -23,3 +23,10 @@ psql mydb --username=dev
 1. sqlmigrate
 1. squashmigrations
 1. migrate
+
+## Githooks
+Symlink .git/hooks to scripts/githooks/
+
+```bash
+ln -s scripts/githooks/ .git/hooks
+```

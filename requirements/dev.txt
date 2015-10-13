@@ -1,2 +1,4 @@
 # Development dependencies
 -r test.txt
+pep8==1.6.2
+flake8==2.4.1

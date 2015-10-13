@@ -6,4 +6,4 @@ urls = [
     url(r'^$', NewsletterView.as_view(), name='newsletter')
 ]
 
-#patterns('', url(r'^$', NewsletterView.as_view() , name='newsletter'))
+# patterns('', url(r'^$', NewsletterView.as_view() , name='newsletter'))
