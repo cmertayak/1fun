@@ -1,3 +1,6 @@
 from django.db import models
+from website.core.models import TimeStampedModel
 
-# Create your models here.
+
+class Lead(TimeStampedModel):
+    email = models.EmailField()
